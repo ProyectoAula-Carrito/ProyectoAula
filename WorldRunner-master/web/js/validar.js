@@ -1,0 +1,3 @@
+function mira() {
+	alert("funciona");
+}

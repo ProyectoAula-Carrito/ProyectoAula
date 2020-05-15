@@ -1,0 +1,129 @@
+*{
+	margin: 0;
+	padding: 0;
+	transition: all 0.30s linear;
+	box-sizing: border-box;
+}
+
+body{
+	background: #818479;
+	font-family: 'Poppins', sans-serif;
+}
+.encabezado{
+	font-family: 'Anton', sans-serif;
+}
+
+.contenedor{
+	width: 100%;
+	max-width: 1200px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.logo{
+	height: 80px;
+	float: left;
+	padding: 10px;
+
+}
+
+h2{
+	padding: 0px 0px 50px 100px;
+}
+	
+header{
+	background: #F24236;
+	height:120px; 
+}
+
+li{
+	list-style: none;
+
+}
+
+nav > a{
+	color: #fff;
+	text-decoration: none;
+	margin-right:28px;
+	font-size: 18px;
+	opacity: 20%;
+}
+nav > a:hover{
+	color: #111;
+	margin-right:25px;
+	font-size: 18px;
+	opacity: 100%;
+}
+
+.im{
+	display: inline-block;
+	padding: 10px;
+	
+	width: 50%;
+	font-size: 30px;
+}
+
+.nave{
+	display: inline-block;
+	margin-right: 5px;
+	text-align: center;
+	width: 45%;
+}
+
+
+section{
+	background: #fff;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.contenedor-formulario{
+	margin-left: 25%;
+	margin-top: 10px;
+	width: 500px;
+	background: #F24236;
+	border: 10px solid #DD0426;
+	max-width: 70%;
+	padding: 10px;
+}
+.contenedor-formulario h2{
+	padding-left: 0;
+}
+
+.per{
+	float: right;
+	width: 100px;
+}
+
+.intro{
+	background: transparent;
+	background: #fff;
+	opacity: 50%;
+	border: 3px solid #fff;
+
+}
+
+.intro:hover{
+	background: #fff;
+	border: 3px solid #DD0426;
+	opacity: 100%;
+}
+
+button{
+	background: #121420;
+	color: blue;
+	font-family: 'Anton', sans-serif;
+	font-size: 18px;
+	border: 1px solid transparent;
+	padding: 10px;
+}
+button:hover{
+	padding: 15px;
+	font-size: 23px;
+	border-radius: 10px;
+}
+table{
+	background: #fff;
+	border-color: #DD0426;
+}
+

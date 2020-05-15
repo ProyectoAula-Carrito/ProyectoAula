@@ -1,0 +1,95 @@
+*{
+	margin: 0;
+	padding: 0;
+	transition: all 0.30s linear;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: 'Anton', sans-serif;
+	background: #818479;
+}
+
+.contenedor{
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.logo{
+	height: 80px;
+	float: left;
+	padding: 10px;
+
+}
+
+h2{
+	padding: 0px 0px 50px 100px;
+}
+
+.contenedor-texto{
+	font-size: 32px;
+	background:#fff no-repeat url(../img/corredor.png);
+	padding: 120px 0px 100px 200px;
+	margin: auto;
+}	
+
+header{
+	background: #F24236;
+	height:120px; 
+}
+
+li{
+	list-style: none;
+
+}
+
+nav > a{
+	color: #fff;
+	text-decoration: none;
+	margin-right:25px;
+	font-size: 22px;
+	opacity: 20%;
+}
+nav > a:hover{
+	color: #111;
+	margin-right:25px;
+	font-size: 28px;
+	opacity: 100%;
+}
+
+.im{
+	display: inline-block;
+	padding: 10px;
+	
+	width: 70%;
+	font-size: 30px;
+}
+
+.nave{
+	display: inline-block;
+	margin-right: 10px;
+	text-align: center;
+	width: 25%;
+}
+
+.cuadro{
+	width: 30%;
+	display: inline-block;
+	margin: 0px 15px 0px 15px;
+	background: #fff;
+	border: 5px solid #9197AE;
+}
+.ofertas{
+	background: #fff;
+}
+.ofertas h2{
+	padding: 0;
+	font-size:24px;
+}
+
+.ima{
+	width: 30%;
+	float: left;
+}

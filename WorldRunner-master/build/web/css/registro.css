@@ -1,0 +1,147 @@
+*{
+	margin: 0;
+	padding: 0;
+	transition: all 0.30s linear;
+	box-sizing: border-box;
+}
+
+body{
+	background: #818479;
+	font-family: 'Poppins', sans-serif;
+}
+.encabezado{
+	font-family: 'Anton', sans-serif;
+}
+
+.contenedor{
+	width: 90%;
+	max-width: 1000px;
+	margin: auto;
+	overflow: hidden;
+}
+
+.logo{
+	height: 80px;
+	float: left;
+	padding: 10px;
+
+}
+
+h2{
+	padding: 0px 0px 50px 100px;
+}
+	
+header{
+	background: #F24236;
+	height:120px; 
+}
+
+li{
+	list-style: none;
+
+}
+
+nav > a{
+	color: #fff;
+	text-decoration: none;
+	margin-right:25px;
+	font-size: 22px;
+	opacity: 20%;
+}
+nav > a:hover{
+	color: #111;
+	margin-right:25px;
+	font-size: 28px;
+	opacity: 100%;
+}
+
+.im{
+	display: inline-block;
+	padding: 10px;
+	
+	width: 70%;
+	font-size: 30px;
+}
+
+.nave{
+	display: inline-block;
+	margin-right: 10px;
+	text-align: center;
+	width: 25%;
+}
+
+
+section{
+	background: #fff;
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+
+.contenedor-formulario{
+	margin-left: 25%;
+	margin-top: 10px;
+	width: 500px;
+	background: #F24236;
+	border: 10px solid #DD0426;
+	max-width: 70%;
+	padding: 10px;
+}
+.contenedor-formulario h2{
+	padding-left: 0;
+}
+
+.per{
+	float: right;
+	width: 100px;
+}
+
+.intro{
+	background: transparent;
+	background: #fff;
+	opacity: 50%;
+	border: 3px solid #fff;
+
+}
+
+.intro:hover{
+	background: #fff;
+	border: 3px solid #DD0426;
+	opacity: 100%;
+}
+
+.button{
+	background: #121420;
+	color: blue;
+	font-family: 'Anton', sans-serif;
+	font-size: 18px;
+	border: 1px solid transparent;
+	padding: 10px;
+}
+.button:hover{
+	padding: 15px;
+	font-size: 23px;
+	border-radius: 10px;
+}
+table{
+	background: #fff;
+	border-color: #DD0426;
+        font-size: 10px;
+}
+/*
+Nombre
+						<input type="text" name="name" value="" placeholder="">
+						Apellido paterno
+						<input type="text" name="ap" value="" placeholder="">
+						Apellido materno 
+						<input type="text" name="am" value="" placeholder="">
+						CURP 
+						<input type="text" name="identidad" value="" placeholder="">
+						Fecha de nacimiento 
+						<input type="date" name="da" value="" placeholder="">
+						Direccion 
+						<input type="text" name="dire" value="" placeholder="">
+						CP 
+						<input type="text" name="cp" value="" placeholder="">
+						Telefono de contacto
+						<input type="text" name="tel" value="" placeholder="">
+*/
