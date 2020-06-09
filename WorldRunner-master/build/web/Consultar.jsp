@@ -1,8 +1,5 @@
 <%@ page language="java" %>
-<%@ page import = "bean.Contacto"%> 
-<%@ page import = "bean.ConsultaAgenda"%>
-<%@ page import = "bean.Contacto2"%> 
-<%@ page import = "bean.ConsultaAgenda2"%>
+
 <%@ page import = "java.util.LinkedList"%> 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -56,26 +53,7 @@
                 </tr>           
                 <%
                   
-                    LinkedList<Contacto2> lista = ConsultaAgenda2.getContactos();
-                    for (int i=0;i<lista.size();i++)
-                    {
-                       out.println("<tr>");
-                       out.println("<td>"+lista.get(i).getUsuario()+"</td>");
-                       out.println("<td>"+lista.get(i).getPassword()+"</td>");
-                       out.println("<td>"+lista.get(i).getCorreo()+"</td>");
-                       out.println("<td>"+lista.get(i).getNombre()+"</td>");
-                       out.println("<td>"+lista.get(i).getApellidop()+"</td>");
-                       out.println("<td>"+lista.get(i).getApellidom()+"</td>");
-                       out.println("<td>"+lista.get(i).getCurp()+"</td>");
-                       out.println("<td>"+lista.get(i).getYear()+"</td>");
-                       out.println("<td>"+lista.get(i).getMonth()+"</td>");
-                       out.println("<td>"+lista.get(i).getDay()+"</td>");
-                       out.println("<td>"+lista.get(i).getDireccion()+"</td>");
-                       out.println("<td>"+lista.get(i).getCp()+"</td>");
-                       out.println("<td>"+lista.get(i).getTelefono()+"</td>");
-                     
-                       out.println("</tr>");
-                    }
+                    
                     
            
                     %>

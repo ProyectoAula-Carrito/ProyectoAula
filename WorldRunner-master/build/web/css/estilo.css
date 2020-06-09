@@ -33,7 +33,19 @@ h2{
 	background:#fff no-repeat url(../img/corredor.png);
 	padding: 120px 0px 100px 200px;
 	margin: auto;
-}	
+}
+.contenedor-error{
+	font-size: 32px;
+	background:#fff no-repeat url(../img/error.png);
+	padding: 120px 0px 100px 200px;
+	margin: auto;
+}
+.contenedor-correcto{
+	font-size: 32px;
+	background:#fff no-repeat url(../img/correcto.png);
+	padding: 120px 0px 100px 200px;
+	margin: auto;
+}
 
 header{
 	background: #F24236;

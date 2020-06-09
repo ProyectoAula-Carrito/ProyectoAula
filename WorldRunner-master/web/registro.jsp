@@ -37,33 +37,29 @@
 					<form action="Insertar.jsp" method="post">
 						<img src="img/usuario (1).png" alt="" class="per">
 						<h2>REGISTRO</h2>
-						Usuario:<br>
-						<input type="text" name="usuario" value="" placeholder="" class="intro"> <br><br>
-						Contraseña:<br>
-						<input type="password" name="password" value="" placeholder="" class="intro"><br><br>
-						Confirmar contraseña:<br>
-						<input type="password" name="confirm" value="" placeholder="" class="intro"><br><br>
-                                                Correo electronico:<br>
-                                                <input type="text" name="correo" value="" placeholder="" class="intro"><br><br>
-                                                Nombre <br>
-						<input type="text" name="nombre" value="" placeholder="" class="intro"><br><br>
-						Apellido paterno<br>
-						<input type="text" name="apellidop" value="" placeholder="" class="intro"><br><br>
-						Apellido materno <br>
-						<input type="text" name="apellidom" value="" placeholder="" class="intro"><br><br>
-						CURP <br>
-						<input type="text" name="curp" value="" placeholder="" class="intro"><br><br>
-						Fecha de nacimiento <br>
-						<input type="text" name="year" value="" placeholder="" class="intro">
-						<input type="text" name="month" value="" placeholder="" class="intro">
-						<input type="text" name="day" value="" placeholder="" class="intro"><<br><br>
-						Direccion <br>
-						<input type="text" name="direccion" value="" placeholder="" class="intro"><br><br>
-						CP <br>
-						<input type="text" name="cp" value="" placeholder="" class="intro"><br><br>
-						Telefono de contacto<br>
-						<input type="text" name="telefono" value="" placeholder="" class="intro"><br><br>
-						<input type="submit" value="Registrar" onclick="" class="button"></input>
+						Correo:<br>
+						<input type="text" name="correo" value="" placeholder="" class="intro"> <br><br>
+						Nombre(s):<br>
+						<input type="text" name="names" value="" placeholder="" class="intro"><br><br>
+						Apellido paterno:<br>
+						<input type="text" name="Appat" value="" placeholder="" class="intro"><br><br>
+                                                Apellido materno:<br>
+                                                <input type="text" name="Apmat" value="" placeholder="" class="intro"><br><br>
+                                                Dia de nacimiento: <br>
+						<input type="text" name="dia" value="" placeholder="" class="intro"><br><br>
+						<br>
+						Mes de nacimiento: <br>
+						<input type="text" name="mes" value="" placeholder="" class="intro"><br><br>
+						Año de nacimiento: <br>
+						<input type="text" name="year" value="" placeholder="" class="intro"><br><br>
+						Sexo: <br>
+                                                <input type="radio" name="sex" value="H">Hombre
+                                                <input type="radio" name="sex" value="M">Mujer<br>
+						Contraseña: <br>
+						<input type="text" name="password" value="" placeholder="" class="intro"><br><br>
+						Confirmar contraseña: <br>
+						<input type="text" name="confirm" value="" placeholder="" class="intro"><br><br>
+                                                <input type="submit" name="proceso" value="Entrar" onclick="" class="button">
 					</form>
 				</div>
 				

@@ -41,16 +41,16 @@
 			<section class="ofertas">
 				<h2 align="center">SERVICIOS</h2>
 				<div class="cuadro">
-					<img src="img/suplementos.png" alt="" align="center" class="ima">
-					Informacion de sumplementos del mercado 
+					<img src="img/ropa.png" alt="" align="center" class="ima">
+					Ropa exclusivo para deportistas
 				</div>
 				<div class="cuadro">
 					<img src="img/levantamiento-de-pesas.png" alt="" align="center" class="ima">
-					Planes de entrenamiento durante 30 dias 
+					Planes de entrenamiento durante 30 dias (creando)
 				</div>
 				<div class="cuadro">
 					<img src="img/camara-de-video.png" alt="" align="center" class="ima">
-					Videos experiencia como runner
+					Videos experiencia como runner (creando)
 				</div>
 			</section>
 				</div>
