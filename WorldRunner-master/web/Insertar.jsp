@@ -45,8 +45,8 @@
         String sexo=request.getParameter("sex");
         String password=request.getParameter("password");
         String confirm=request.getParameter("confirm");
-        if(correo.matches("^(^[a-zA-Z-0-9]+@{1}[a-z]+(([.](com|web|org|gob|ipn)){1}([.](jp|es|mx))?){1}$){1}") && nombres.matches("^[A-Za-z\\s]+${1,44}") && appat.matches("^[a-zA-Z]+${1,44}")
-                && apmat.matches("^[a-zA-Z]+${1,44}") && diav.matches("^[0-9]+${1,3}+$") && mesv.matches("^[0-9]+${1,3}+$") && añov.matches("^[0-9]+${1,5}+$") && sexo.matches("^[A-Za-z\\s]+${1,44}")
+        if(correo.matches("^(^[a-zA-Z-0-9]+@{1}[a-z]+(([.](com|web|org|gob|ipn)){1}([.](jp|es|mx))?){1}$){1}") && nombres.matches("^[A-Za-z\\s]+${1,44}") && appat.matches("^[A-Za-z\\s]+${1,44}")
+                && apmat.matches("^[A-Za-z\\s]+${1,44}") && diav.matches("^[0-9]+${1,3}+$") && mesv.matches("^[0-9]+${1,3}+$") && añov.matches("^[0-9]+${1,5}+$") && sexo.matches("^[A-Za-z\\s]+${1,44}")
                 && password.matches("^[a-zA-Z0-9]+${1,44}") && confirm.matches("^[a-zA-Z0-9]+${1,44}")){
         Cliente cl=new Cliente();
         cl.setCorreo(correo);cl.setNombres(nombres);cl.setAppat(appat);cl.setApmat(apmat);cl.setSexo(sexo);cl.setDia(dia);cl.setMes(mes);cl.setYear(año);cl.setPassword(password);

@@ -1,8 +1,12 @@
 <%-- 
-    Document   : log
-    Created on : 24/04/2020, 07:42:21 PM
-    Author     : lyeup
+    Document   : CompletarCompra
+    Created on : 9/06/2020, 05:42:25 PM
+    Author     : crist
 --%>
+
+<%@ page language="java" %>
+
+<%@ page import = "java.util.LinkedList"%> 
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,28 +29,22 @@
 				<h1>WORLD RUNNERS</h1>	
 			</div>
 			<div class="nave">
-				<nav class="">	
-						<a href="index.jsp" title="">Inicio</a>
-						<a href="registro.jsp" title="">Registro</a>
-				</nav>
+                            <nav class="">	
+                                <a href="index.jsp" title="">Inicio</a>
+                                <a href="Tienda.jsp" title="">Tienda</a>
+                            </nav>
 			</div>	
 		</header>
 		<main>
-			<section class="presentacion">
-				<div class="contenedor-formulario">
-					<form action="loginprocess.jsp" method="get" accept-charset="utf-8">
-						<img src="img/usuario (1).png" alt="" class="per">
-						<h2>LOG-IN</h2>
-						Correo Electronico:<br>
-						<input type="text" name="correo" value="" placeholder="" class="intro"> <br><br>
-						Contraseña:<br>
-						<input type="password" name="password" value="" placeholder="" class="intro"><br><br>                  
-						<input type="submit" name="proceso" value="Entrar" onclick="" class="button"></input>
-					</form>
-				</div>
-				
-			</section>
-		</main>
+            <section class="presentacion">
+                <h2>
+                    Ordenes
+                </h2>
+                <div class="contenedor-tienda">
+                    
+                </div>                
+            </section>
+        </main>
 	</div>
 </body>
 </html>

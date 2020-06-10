@@ -77,6 +77,15 @@ section{
 	padding-bottom: 30px;
 }
 
+.contenedor-tienda{
+	margin-left: 5%;
+	margin-top: 10px;
+	width: 90%;
+	background: #F24236;
+	border: 10px solid #DD0426;
+	padding: 10px;
+}
+
 .contenedor-formulario{
 	margin-left: 25%;
 	margin-top: 10px;

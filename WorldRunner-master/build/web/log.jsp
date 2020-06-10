@@ -26,8 +26,8 @@
 			</div>
 			<div class="nave">
 				<nav class="">	
-						<a href="index.html" title="">Inicio</a>
-						<a href="registro.html" title="">Registro</a>
+						<a href="index.jsp" title="">Inicio</a>
+						<a href="registro.jsp" title="">Registro</a>
 				</nav>
 			</div>	
 		</header>

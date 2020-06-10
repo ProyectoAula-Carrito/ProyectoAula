@@ -17,14 +17,13 @@ import java.sql.*;
 public class ClienteAc {
     public static Connection getConnection(){
         Connection con=null;
-        String url="jdbc:mysql://localhost:3306/comprascarrito";
-        String user="root";
-        String password="n0m3l0";
-        String driver="com.mysql.jdbc.Driver";
+        String url = new Utiles.usuarioYContrasenaBD().getUrl();
+        String user = new Utiles.usuarioYContrasenaBD().getUser();
+        String password = new Utiles.usuarioYContrasenaBD().getPassword();
+        String driver = new Utiles.usuarioYContrasenaBD().getDriver();
         try{
             Class.forName(driver);
             con=DriverManager.getConnection(url,user,password);
-            
         }catch(ClassNotFoundException | SQLException e){
             e.printStackTrace();
         }  
@@ -58,6 +57,8 @@ public class ClienteAc {
         
     }
     public static boolean Register(Cliente cl)throws SQLException{
+        System.out.println("clientaco "+ cl);
+        
         boolean estatus=false;
         try{
         Connection cn=ClienteAc.getConnection();
