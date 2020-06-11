@@ -27,7 +27,7 @@
 			<div class="nave">
                             <nav class="">	
                                 <a href="index.jsp" title="">Inicio</a>
-                                <a href="CompletarCompra.jsp" title="">Productos</a>
+                                <a href="ConsultarProdu.jsp" title="">Productos</a>
                                 <a href="Consultar.jsp">Clientes</a>
                             </nav>
 			</div>	

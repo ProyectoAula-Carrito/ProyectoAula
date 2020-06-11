@@ -39,27 +39,27 @@
 						<img src="img/usuario (1).png" alt="" class="per">
 						<h2>REGISTRO</h2>
 						Correo:<br>
-						<input type="text" name="correo" value="" placeholder="" class="intro"> <br><br>
+                                                <input type="text" name="correo" value="" placeholder="" class="intro" autocomplete="off"> <br><br>
 						Nombre(s):<br>
-						<input type="text" name="names" value="" placeholder="" class="intro"><br><br>
+						<input type="text" name="names" value="" placeholder="" class="intro" autocomplete="off"><br><br>
 						Apellido paterno:<br>
-						<input type="text" name="Appat" value="" placeholder="" class="intro"><br><br>
+						<input type="text" name="Appat" value="" placeholder="" class="intro" autocomplete="off"><br><br>
                                                 Apellido materno:<br>
-                                                <input type="text" name="Apmat" value="" placeholder="" class="intro"><br><br>
+                                                <input type="text" name="Apmat" value="" placeholder="" class="intro" autocomplete="off"><br><br>
                                                 Dia de nacimiento: <br>
-						<input type="text" name="dia" value="" placeholder="" class="intro"><br><br>
+						<input type="text" name="dia" value="" placeholder="" class="intro" autocomplete="off"><br><br>
 						<br>
 						Mes de nacimiento: <br>
-						<input type="text" name="mes" value="" placeholder="" class="intro"><br><br>
+						<input type="text" name="mes" value="" placeholder="" class="intro" autocomplete="off"><br><br>
 						Año de nacimiento: <br>
-						<input type="text" name="year" value="" placeholder="" class="intro"><br><br>
+						<input type="text" name="year" value="" placeholder="" class="intro" autocomplete="off"><br><br>
 						Sexo: <br>
                                                 <input type="radio" name="sex" value="H">Hombre
                                                 <input type="radio" name="sex" value="M">Mujer<br>
 						Contraseña: <br>
-						<input type="text" name="password" value="" placeholder="" class="intro"><br><br>
+						<input type="text" name="password" value="" placeholder="" class="intro" autocomplete="off"><br><br>
 						Confirmar contraseña: <br>
-						<input type="text" name="confirm" value="" placeholder="" class="intro"><br><br>
+						<input type="text" name="confirm" value="" placeholder="" class="intro" ><br><br>
                                                 <input type="submit" name="proceso" value="Entrar" onclick="validaregister()" class="button">
                                                 <input type="hidden" name="vajs" value="0">
 					</form>

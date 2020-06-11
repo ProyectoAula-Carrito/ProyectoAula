@@ -89,6 +89,7 @@ public class ManejoDeProductos {
     }
     
     public boolean compraRealizada(String productos, String direccion, String metodoDePago, String correoDelCliente){
+        
         if ((productos != "" && productos != null) && (direccion != "" && direccion != null) && (metodoDePago != "" && metodoDePago != null)) {
             
             if (metodoDePago.equalsIgnoreCase("PayPal") && metodoDePago.equalsIgnoreCase("MasterCard")) {

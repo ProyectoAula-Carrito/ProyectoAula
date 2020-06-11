@@ -59,6 +59,7 @@
                 <%
             }
             else{
+
                 %>
                 <h1>
                     Compra fallida

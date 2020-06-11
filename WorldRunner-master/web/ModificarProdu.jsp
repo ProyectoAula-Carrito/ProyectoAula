@@ -46,7 +46,7 @@ String img="img/"+request.getParameter("img");
 Productoc pr=new Productoc();
 pr.setCproducto(cproducto);pr.setNombre(nombre);pr.setPrecio(precio);pr.setTalla(talla);pr.setCantidad(cantidad);pr.setImg(img);
 boolean estatus=ProductosAc.Modificar(pr);
-if(true){//validacion
+if(cproducto.matches("")){//validacion
 if(estatus){
     
     response.sendRedirect("ConsultarProdu.jsp");

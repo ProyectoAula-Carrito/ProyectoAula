@@ -25,8 +25,7 @@
 			</div>
 			<div class="nave">
                             <nav class="">	
-                                <a href="index.jsp" title="">Inicio</a>
-                                <a href="CompletarCompra.jsp" title="">Productos</a>
+                                <a href="index.jsp" title="">Log-out</a>
                                 <a href="Consultar.jsp">Clientes</a>
                             </nav>
 			</div>	
@@ -38,7 +37,7 @@
                    %>
                    <table>
                        <tr>
-                           <th></th>
+                           <th>VISUALIZACION</th>
                            <th>Codigo-Producto</th>
                            <th>Nombre</th>
                            <th>Precio</th>
@@ -50,9 +49,10 @@
                             %>
                             <tr>
                                 <td><%out.println("<img src='"+pr.getImg()+"'>");%></td>
+                                <td><%out.println(pr.getCproducto());%></td>
                                 <td><%out.println(pr.getNombre());%></td>
-                                <td><%out.println(pr.getTalla());%></td>
                                 <td><%out.println(pr.getPrecio()+"$");%></td>
+                                <td><%out.println(pr.getTalla());%></td>
                                 <td><%out.println(pr.getCantidad());%></td>
                             </tr>
                        <%
@@ -109,7 +109,7 @@
 						<input type="text" name="cantidad" value="" placeholder="" class="intro"> <br><br>
                                                 Imagen(La imagen debe ser insertada en la carpeta img):<br>
 						<input type="text" name="img" value="" placeholder="" class="intro"> <br><br>
-                                                <input type="submit" name="proceso" value="Agregar" onclick="" class="button">
+                                                <input type="submit" name="proceso" value="Modificar" onclick="" class="button">
                                                 <input type="hidden" name="vajs" value="0">
 					</form>
                                         <form action="EliminarProdu.jsp" method="get" accept-charset="utf-8" name="formulario">
@@ -117,7 +117,7 @@
 						<h2>Eliminar un producto mediante su Codigo-Producto</h2>
 						Codigo-Producto:<br>
 						<input type="text" name="codigo" value="" placeholder="" class="intro"> <br><br>
-                                                <input type="submit" name="proceso" value="Agregar" onclick="" class="button">
+                                                <input type="submit" name="proceso" value="Eliminar" onclick="" class="button">
                                                 <input type="hidden" name="vajs" value="0">
 					</form>
 				</div>

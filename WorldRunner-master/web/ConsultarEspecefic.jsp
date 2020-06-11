@@ -66,7 +66,7 @@
 						<h2>Buscar Algun usuario mediante su correo</h2>
 						Correo Electronico:<br>
 						<input type="text" name="correo" value="" placeholder="" class="intro"> <br><br>              
-                                                <input type="submit" name="proceso" value="Entrar" onclick="validarCor()" class="button">
+                                                <input type="submit" name="proceso" value="Buscar" onclick="validarCor()" class="button">
                                                 <input type="hidden" name="vajs" value="0">
 					</form>
 				</div>

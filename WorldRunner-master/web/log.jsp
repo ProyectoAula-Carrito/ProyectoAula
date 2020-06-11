@@ -38,7 +38,7 @@
 						<img src="img/usuario (1).png" alt="" class="per">
 						<h2>LOG-IN</h2>
 						Correo Electronico:<br>
-						<input type="text" name="correo" value="" placeholder="" class="intro"> <br><br>
+						<input type="text" name="correo" value="" placeholder="" class="intro" > <br><br>
 						Contraseña:<br>
 						<input type="password" name="password" value="" placeholder="" class="intro"><br><br>                  
 						<input type="submit" name="proceso" value="Entrar" onclick="validarlog()" class="button">

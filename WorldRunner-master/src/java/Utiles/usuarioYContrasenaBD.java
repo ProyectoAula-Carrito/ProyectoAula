@@ -12,7 +12,7 @@ package Utiles;
 public class usuarioYContrasenaBD {
     private String url="jdbc:mysql://localhost:3306/comprascarrito";
     private String user="root";
-    private String password="alpine";
+    private String password="n0m3l0";
     private String driver="com.mysql.jdbc.Driver";
 
     public String getUrl() {
