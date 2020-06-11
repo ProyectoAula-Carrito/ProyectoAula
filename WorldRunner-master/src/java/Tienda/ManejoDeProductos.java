@@ -88,9 +88,25 @@ public class ManejoDeProductos {
         return productos;
     }
     
-    public boolean compraRealizada(String productos, String direccion, String metodoDePago, String correoDelCliente){
-        
+    public boolean compraRealizada(String productos, String direccion, String metodoDePago, String correoDelCliente, String passwordDelCliente){
         if ((productos != "" && productos != null) && (direccion != "" && direccion != null) && (metodoDePago != "" && metodoDePago != null)) {
+            Connection cn = ClienteAc.getConnection();
+            try {
+                ResultSet rs = null;
+                PreparedStatement ps = cn.prepareStatement("select * from cliente WHERE (correo = '" + correoDelCliente + "' and password = '" + passwordDelCliente + "');");
+                rs = ps.executeQuery();
+                if (!rs.next()) {
+                    return false;
+                }
+            } catch (SQLException ex) {
+                try{
+                    cn.close();
+                }
+                catch(Exception e){
+                    return false;
+                }
+                return false;
+            }
             
             if (metodoDePago.equalsIgnoreCase("PayPal") && metodoDePago.equalsIgnoreCase("MasterCard")) {
                 return false;
@@ -128,8 +144,6 @@ public class ManejoDeProductos {
             }
             
             if (producto.size() > 0) {
-                Connection cn = ClienteAc.getConnection();
-                
                 try{
                     for (int i = 0; i < producto.size(); i++) {
                         if (i + 1 < producto.size()) {
