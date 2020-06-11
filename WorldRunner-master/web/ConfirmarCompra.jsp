@@ -30,9 +30,10 @@
 			</div>
 			<div class="nave">
                             <nav class="">
-                                <form action="Tienda.jsp">
+                                <form method="post" action="Tienda.jsp">
                                     <input type="submit" value="Tienda" class="navForm">
-                                    <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                                    <%out.print("<input hidden readonly type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                                    <%out.print("<input hidden readonly type=\"password\" id=\"Pass\" name=\"Pass\" value=\"" + request.getParameter("Pass") + "\" >");%>
                                 </form>
                             </nav>
 			</div>	
@@ -43,7 +44,7 @@
                     Ordenes
                 </h2>
                 <div class="contenedor-tienda">
-                    <form action="CompraCompleta.jsp">
+                    <form method="post" action="CompraCompleta.jsp">
                         <p id="OrdenesP" style="color: white;">
                             
                         </p>
@@ -73,7 +74,8 @@
                         </div>
                         <br>
                         <input id="Comprar" onmousemove="comprobarDireccion()" type="submit" value="Confirmar compra" class="intro" style="visibility: hidden;">
-                        <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                        <%out.print("<input readonly hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                        <%out.print("<input hidden readonly type=\"password\" id=\"Pass\" name=\"Pass\" value=\"" + request.getParameter("Pass") + "\" >");%>
                     </form>
                     <script type="text/javascript">
                         function cambiarMetodoDePago(metodo) {

@@ -47,14 +47,15 @@ int privilegio=ClienteAc.Log(in);
 if(correo.matches("^(^[a-zA-Z-0-9]+@{1}[a-z]+(([.](com|web|org|gob|ipn)){1}([.](jp|es|mx))?){1}$){1}") && password.matches("^[a-zA-Z0-9]+${1,44}")){
 if(privilegio==2){
     session.setAttribute("session","TRUE");
-    response.sendRedirect("ConsultarProdu.jsp");
+    response.sendRedirect("HomeAdmin.jsp");
 }else if(privilegio==1){
     session.setAttribute("session", "TRUE");
     //response.sendRedirect("Tienda.jsp");
-    out.print("<form id=\"irATienda\" action=\"Tienda.jsp\">");
+    out.print("<form method=\"post\" id=\"irATienda\" action=\"Tienda.jsp\">");
 %>
 
-<input hidden type="text" id="Correo" name="Correo" value="<%out.print(correo);%>">
+<input hidden readonly type="text" id="Correo" name="Correo" value="<%out.print(correo);%>">
+<input hidden readonly type="password" id="Pass" name="Pass" value="<%out.print(password);%>">
 
 <%
     out.print("</form>");

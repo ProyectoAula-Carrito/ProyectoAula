@@ -30,13 +30,15 @@
 			</div>
 			<div class="nave">
                             <nav class="">
-                                <form action="ConfirmarCompra.jsp">
+                                <form method="post" action="ConfirmarCompra.jsp">
                                     <input type="submit" value="Carrito de compras" class="navForm">
-                                    <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                                    <%out.print("<input hidden readonly type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                                    <%out.print("<input hidden readonly type=\"password\" id=\"Pass\" name=\"Pass\" value=\"" + request.getParameter("Pass") + "\" >");%>
                                 </form>   
-                                <form action="Tienda.jsp">
+                                <form method="post" action="Tienda.jsp">
                                     <input type="submit" value="Tienda" class="navForm">
-                                    <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                                    <%out.print("<input hidden readonly type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                                    <%out.print("<input hidden readonly type=\"password\" id=\"Pass\" name=\"Pass\" value=\"" + request.getParameter("Pass") + "\" >");%>
                                 </form>   
                             </nav>
 			</div>	
@@ -57,9 +59,10 @@
                             }
                         }
                     %>
-                    <form action="Tienda.jsp">
+                    <form method="post" action="Tienda.jsp">
                         <input type="submit" value="Tienda" class="navForm">
-                        <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                        <%out.print("<input hidden readonly type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                        <%out.print("<input hidden readonly type=\"password\" id=\"Pass\" name=\"Pass\" value=\"" + request.getParameter("Pass") + "\" >");%>
                     </form>
                 </div>                
             </section>
