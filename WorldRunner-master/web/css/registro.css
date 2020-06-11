@@ -41,6 +41,16 @@ li{
 
 }
 
+table{
+    margin-left: 5%;
+    width: 90%;
+}
+
+td, th, tr{
+    border-bottom: 5px solid #F24236;
+    text-align: center;
+}
+
 nav > a{
 	color: #fff;
 	text-decoration: none;
