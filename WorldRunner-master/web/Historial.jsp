@@ -54,7 +54,9 @@
                         String[] historialDeCompra = new Tienda.ManejoDeProductos().historialDeCompras(request.getParameter("Correo"));
                         if(historialDeCompra != null){
                             for (int i = 0; i < historialDeCompra.length; i++) {
-                                out.print(historialDeCompra[i]);
+                                if (historialDeCompra[i] != null) {
+                                    out.print(historialDeCompra[i]);
+                                }
                             }
                         }
                     %>
