@@ -1,4 +1,4 @@
-var patronnomb=/^[A-Za-z\\s]+$/;
+var patronnomb=/^[A-Za-z\s]+$/;
 var patrontex=/^[a-zA-Z0-9]+$/;
 var patronduo=/^[0-9]+$/;
 var patroncua=/^[0-9]+$/;

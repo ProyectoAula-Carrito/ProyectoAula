@@ -7,7 +7,6 @@ package Tienda;
 
 import Cliente.ClienteAc;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -89,8 +88,17 @@ public class ManejoDeProductos {
         return productos;
     }
     
-    public boolean compraRealizada(String productos){
-        if (productos != "" && productos != null) {
+    public boolean compraRealizada(String productos, String direccion, String metodoDePago, String correoDelCliente){
+        if ((productos != "" && productos != null) && (direccion != "" && direccion != null) && (metodoDePago != "" && metodoDePago != null)) {
+            
+            if (metodoDePago.equalsIgnoreCase("PayPal") && metodoDePago.equalsIgnoreCase("MasterCard")) {
+                return false;
+            }
+            
+            if (!direccion.matches("^[a-zA-Z0-9\\s]+${1,49}")) {
+                return false;
+            }
+            
             ArrayList<String> producto = new ArrayList();
             String productoCopiaTemporal = "";
             String cantidadCopiaTemporal = "";
@@ -133,6 +141,20 @@ public class ManejoDeProductos {
                             
                             ps = cn.prepareStatement("UPDATE playera SET cantidad = '" + productosDisponiblesFinales + "' WHERE cproducto = '" + producto.get(i) + "';");
                             ps.executeUpdate();
+                            
+                            java.util.Date fechaUtil = new java.util.Date();
+                            java.sql.Date fechaSQL = new java.sql.Date(fechaUtil.getTime());
+                            
+                            ps = cn.prepareStatement("insert into compra values(?,?,?,?,?,?,?);");
+                            ps.setInt(1, 0);
+                            ps.setDate(2, fechaSQL);
+                            ps.setString(3, direccion);
+                            ps.setString(4, correoDelCliente);
+                            ps.setString(5, metodoDePago);
+                            ps.setString(6, producto.get(i));
+                            ps.setInt(7, Integer.parseInt(producto.get(i+1)));
+                            ps.executeUpdate();
+                            
                             i++;
                         }
                     }
@@ -148,11 +170,67 @@ public class ManejoDeProductos {
                     
                     return false;
                 }
+                
+                return true;
             }
-            
-            return true;
         }
         
         return false;
+    }
+    
+    public String[] historialDeCompras(String correoDelCliente){
+        System.out.println(correoDelCliente);
+        String[] compras = null;
+        Connection cn = ClienteAc.getConnection();
+        ResultSet rs = null;
+        
+        try{
+            PreparedStatement ps=cn.prepareStatement("select count(*) as items from compra;");
+            rs = ps.executeQuery();
+            rs.next();
+            int cantidadDeRegistros = rs.getInt("items");
+            
+            if (cantidadDeRegistros > 0) {
+                compras = new String[cantidadDeRegistros];
+                
+                ps = cn.prepareStatement("select * from compra WHERE correo = '" + correoDelCliente + "';");
+                rs = ps.executeQuery();
+                
+                for (int i = 0; i < cantidadDeRegistros; i++) {
+                    if (rs.next()) {
+                        compras[i] = "<article style=\"display: inline-block; padding: 2%; text-align: center; color: white;\">\n"
+                                        + "Producto: " + rs.getString("cproducto") + "\n"
+                                        + "<br>\n"
+                                        + "Fecha: " + rs.getDate("fecha") + "\n"
+                                        + "<br>\n"
+                                        + "Cantidad: " + rs.getInt("cantidad") + "\n"
+                                        + "<br>\n"
+                                        + "Direccion: " + rs.getString("direccion") + "\n"
+                                        + "<br>\n"
+                                        + "Pagado con: " + rs.getString("servicio") + "\n"
+                                        + "</article>";
+                    }
+                    else{
+                        break;
+                    }
+                }
+            }
+            
+            ps.close();
+            cn.close();
+        }catch(Exception e){
+            System.out.println("Que paso?");
+            System.out.println(e.getMessage());
+            e.printStackTrace();
+        }
+        finally{
+            try {
+                cn.close();
+            } catch (SQLException ex) {
+                Logger.getLogger(ManejoDeProductos.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+         
+        return compras;
     }
 }

@@ -56,7 +56,16 @@
                 && password.matches("^[a-zA-Z0-9]+${1,44}") && confirm.matches("^[a-zA-Z0-9]+${1,44}")){
             if(password.equals(confirm)){
         Cliente cl=new Cliente();
-        cl.setCorreo(correo);cl.setNombres(nombres);cl.setAppat(appat);cl.setApmat(apmat);cl.setSexo(sexo);cl.setDia(dia);cl.setMes(mes);cl.setYear(año);cl.setPassword(password);cl.setPrivilegio(privilegio);
+        cl.setCorreo(correo);
+        cl.setNombres(nombres);
+        cl.setAppat(appat);
+        cl.setApmat(apmat);
+        cl.setSexo(sexo);
+        cl.setDia(dia);
+        cl.setMes(mes);
+        cl.setYear(año);
+        cl.setPassword(password);
+        cl.setPrivilegio(privilegio);
         int estatus=ClienteAc.Register(cl);
         
         if (estatus==1) {%>

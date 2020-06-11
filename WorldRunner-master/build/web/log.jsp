@@ -41,8 +41,7 @@
 						<input type="text" name="correo" value="" placeholder="" class="intro"> <br><br>
 						Contraseña:<br>
 						<input type="password" name="password" value="" placeholder="" class="intro"><br><br>                  
-						<input type="submit" name="proceso" value="Entrar" onclick="" class="button"></input>
-                                                <input type="submit" name="proceso" value="Entrar" onclick="validarlog()" class="button">
+						<input type="submit" name="proceso" value="Entrar" onclick="validarlog()" class="button">
                                                 <input type="hidden" name="vajs" value="0">
 					</form>
 				</div>

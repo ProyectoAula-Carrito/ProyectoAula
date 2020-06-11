@@ -29,9 +29,11 @@
 				<h1>WORLD RUNNERS</h1>	
 			</div>
 			<div class="nave">
-                            <nav class="">	
-                                <a href="index.jsp" title="">Inicio</a>
-                                <a href="Tienda.jsp" title="">Tienda</a>
+                            <nav class="">
+                                <form action="Tienda.jsp">
+                                    <input type="submit" value="Tienda" class="navForm">
+                                    <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                                </form>
                             </nav>
 			</div>	
 		</header>
@@ -51,10 +53,50 @@
                         </p>
                         <input id="OrdenesH" hidden name="OrdenesH" type="text" >
                         <br>
-                        <input id="Comprar" type="submit" value="Comprar" class="intro" style="visibility: hidden;">
+                        <div>
+                            <p id="labelDireccion" style="color: white; visibility: hidden;">
+                                Dirreccion a donde llegara el paquete
+                            </p>
+                            <input type="text" onkeydown="aparecerBotonConDireccion()" id="Direccion" name="Direccion" class="intro" style="visibility: hidden;">
+                            <br>
+                            <br>
+                            <p id="labelMetodo" style="color: white; visibility: hidden;">
+                                Metodo de pago:
+                            </p>
+                            <p id="labelPayPal" onclick="cambiarMetodoDePago('PayPal')" style="color: white; visibility: hidden;">
+                                PayPal
+                            </p>
+                            <p id="labelMaster" onclick="cambiarMetodoDePago('MasterCard')" style="color: white; visibility: hidden;">
+                                MasterCard
+                            </p>
+                            <input type="text" id="metodoDePago" name="metodoDePago" class="intro" readonly style="visibility: hidden;">
+                        </div>
+                        <br>
+                        <input id="Comprar" onmousemove="comprobarDireccion()" type="submit" value="Confirmar compra" class="intro" style="visibility: hidden;">
+                        <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
                     </form>
-
                     <script type="text/javascript">
+                        function cambiarMetodoDePago(metodo) {
+                            document.getElementById("metodoDePago").value = metodo;
+                            if (document.getElementById("Direccion").value != "") {
+                                document.getElementById("Comprar").style.visibility = "visible";
+                            }
+                            else{
+                                alert("Direccion no valida");
+                            }
+                        }
+                        function comprobarDireccion() {
+                            if (document.getElementById("Direccion").value === "") {
+                                alert("Direccion no valida");
+                                document.getElementById("Comprar").style.visibility = "hidden";
+                            }
+                        }
+                        function aparecerBotonConDireccion() {
+                            if (document.getElementById("metodoDePago").value != "") {
+                                document.getElementById("Comprar").style.visibility = "visible";
+                            }
+                        }
+
                         ordenesString = "";
                         for (i = 0; i < localStorage.length; i++) {
                             ordenesString = ordenesString + (localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]") + "<br>";
@@ -131,7 +173,14 @@
                             document.getElementById("OrdenesP").innerHTML = "" + ordenesString;
                             document.getElementById("Total").innerHTML = "Precio total: " + precioTotal + "$";
                             document.getElementById("OrdenesH").value = idYCantidadDelProducto;
-                            document.getElementById("Comprar").style.visibility = "visible";
+
+                            document.getElementById("labelDireccion").style.visibility = "visible";
+                            document.getElementById("labelMetodo").style.visibility = "visible";
+                            document.getElementById("labelPayPal").style.visibility = "visible";
+                            document.getElementById("labelMaster").style.visibility = "visible";
+
+                            document.getElementById("Direccion").style.visibility = "visible";
+                            document.getElementById("metodoDePago").style.visibility = "visible";
                         }
                     </script>
                 </div>                

@@ -29,10 +29,15 @@
 				<h1>WORLD RUNNERS</h1>	
 			</div>
 			<div class="nave">
-                            <nav class="">	
-                                <a href="index.jsp" title="">Inicio</a>
-                                <a href="ConfirmarCompra.jsp" title="">Carrito de compras</a>
-                                <a href="Historial.jsp">Historial</a>
+                            <nav class="">
+                                <form action="ConfirmarCompra.jsp">
+                                    <input type="submit" value="Carrito de compras" class="navForm">
+                                    <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                                </form>   
+                                <form action="Historial.jsp">
+                                    <input type="submit" value="Historial" class="navForm">
+                                    <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                                </form>   
                             </nav>
 			</div>	
 		</header>

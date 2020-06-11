@@ -29,9 +29,11 @@
 				<h1>WORLD RUNNERS</h1>	
 			</div>
 			<div class="nave">
-                            <nav class="">	
-                                <a href="index.jsp" title="">Inicio</a>
-                                <a href="Tienda.jsp" title="">Tienda</a>
+                            <nav class="">
+                                <form action="Tienda.jsp">
+                                    <input type="submit" value="Tienda" class="navForm">
+                                    <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                                </form>
                             </nav>
 			</div>	
 		</header>
@@ -42,21 +44,35 @@
                 </h2>
                 <div class="contenedor-tienda">
         <%
-            boolean compraCompleta = new Tienda.ManejoDeProductos().compraRealizada(request.getParameter("OrdenesH"));
+            boolean compraCompleta = new Tienda.ManejoDeProductos().compraRealizada(request.getParameter("OrdenesH"), request.getParameter("Direccion"), request.getParameter("metodoDePago"), request.getParameter("Correo"));
             if (compraCompleta) {
                 %>
                 <script type="text/javascript">
                     localStorage.clear();
                 </script>
-                <h1>Compra completa</h1>
+                <h1>
+                    Compra completa
+                </h1>
+                <p>
+                    Su orden llegara en un par de dias
+                </p>
                 <%
             }
             else{
                 %>
-                <h1>Compra fallida</h1>
+                <h1>
+                    Compra fallida
+                </h1>
+                <p>
+                    Su orden no pudo ser procesada, compruebe que los datos sean correctos
+                </p>
                 <%
             }
         %>
+                    <form action="Tienda.jsp">
+                        <input type="submit" value="Tienda" class="navForm">
+                        <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                    </form>
                 </div>                
             </section>
         </main>

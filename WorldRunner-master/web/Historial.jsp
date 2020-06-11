@@ -1,6 +1,6 @@
 <%-- 
-    Document   : CompraCompleta
-    Created on : 9/06/2020, 08:29:15 PM
+    Document   : Historial
+    Created on : 11/06/2020, 12:47:34 AM
     Author     : crist
 --%>
 
@@ -30,45 +30,34 @@
 			</div>
 			<div class="nave">
                             <nav class="">
+                                <form action="ConfirmarCompra.jsp">
+                                    <input type="submit" value="Carrito de compras" class="navForm">
+                                    <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
+                                </form>   
                                 <form action="Tienda.jsp">
                                     <input type="submit" value="Tienda" class="navForm">
                                     <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>
-                                </form>
+                                </form>   
                             </nav>
 			</div>	
 		</header>
 		<main>
             <section class="presentacion">
                 <h2>
-                    Ordenes
+                    Historial de compras
                 </h2>
+                
+                <input type="button" onclick="limpiarCC()" style="width: 30%; margin-left: 5%;" class="intro" value="Limpiar todas las compras">
+                <br>
                 <div class="contenedor-tienda">
-        <%
-            boolean compraCompleta = new Tienda.ManejoDeProductos().compraRealizada(request.getParameter("OrdenesH"), request.getParameter("Direccion"), request.getParameter("metodoDePago"), request.getParameter("Correo"));
-            if (compraCompleta) {
-                %>
-                <script type="text/javascript">
-                    localStorage.clear();
-                </script>
-                <h1>
-                    Compra completa
-                </h1>
-                <p>
-                    Su orden llegara en un par de dias
-                </p>
-                <%
-            }
-            else{
-                %>
-                <h1>
-                    Compra fallida
-                </h1>
-                <p>
-                    Su orden no pudo ser procesada, compruebe que los datos sean correctos
-                </p>
-                <%
-            }
-        %>
+                    <%
+                        String[] historialDeCompra = new Tienda.ManejoDeProductos().historialDeCompras(request.getParameter("Correo"));
+                        if(historialDeCompra != null){
+                            for (int i = 0; i < historialDeCompra.length; i++) {
+                                out.print(historialDeCompra[i]);
+                            }
+                        }
+                    %>
                     <form action="Tienda.jsp">
                         <input type="submit" value="Tienda" class="navForm">
                         <%out.print("<input hidden type=\"text\" id=\"Correo\" name=\"Correo\" value=\"" + request.getParameter("Correo") + "\" >");%>

@@ -55,6 +55,25 @@ nav > a:hover{
 	opacity: 100%;
 }
 
+.navForm{
+    font-family: anton;
+	color: #fff;
+	text-decoration: none;
+	margin-right:25px;
+	font-size: 22px;
+	opacity: 20%;
+        background: none;
+        border: none;
+}
+
+.navForm:hover{
+    font-family: anton;
+	color: #111;
+	margin-right:25px;
+	font-size: 28px;
+	opacity: 100%;
+}
+
 .im{
 	display: inline-block;
 	padding: 10px;
@@ -136,21 +155,3 @@ table{
 	border-color: #DD0426;
         font-size: 10px;
 }
-/*
-Nombre
-						<input type="text" name="name" value="" placeholder="">
-						Apellido paterno
-						<input type="text" name="ap" value="" placeholder="">
-						Apellido materno 
-						<input type="text" name="am" value="" placeholder="">
-						CURP 
-						<input type="text" name="identidad" value="" placeholder="">
-						Fecha de nacimiento 
-						<input type="date" name="da" value="" placeholder="">
-						Direccion 
-						<input type="text" name="dire" value="" placeholder="">
-						CP 
-						<input type="text" name="cp" value="" placeholder="">
-						Telefono de contacto
-						<input type="text" name="tel" value="" placeholder="">
-*/
