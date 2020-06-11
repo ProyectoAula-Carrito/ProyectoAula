@@ -31,7 +31,7 @@
 			<div class="nave">
                             <nav class="">	
                                 <a href="index.jsp" title="">Inicio</a>
-                                <a href="CompletarCompra.jsp" title="">Carrito de compras</a>
+                                <a href="ConfirmarCompra.jsp" title="">Carrito de compras</a>
                                 <a href="Historial.jsp">Historial</a>
                             </nav>
 			</div>	
@@ -39,24 +39,80 @@
 		<main>
             <section class="presentacion">
                 <script type="text/javascript">
-                    function agregar(id) {
+                    function limpiarCC(){
+                        localStorage.clear();
+                        alert("Se limpio el carrito de compras");
+                        location.href='Tienda.jsp';
+                    }
+                    
+                    function agregar(id, nombre, talla, precio) {
+                        cantidadPrevia = parseInt(localStorage.getItem((id + ", Nombre: " + nombre + ", Talla: " + talla + ", Precio: " + precio + ", Cantidad: ")));
+                        cantidadOriginal = parseInt(document.getElementById("ORG" + id).value);
                         cantidad = parseInt(document.getElementById(id).value);
+                        bloquearDisminucion = 0;
+                        
+                        if (cantidadOriginal === cantidad) {
+                            if (cantidadPrevia > 0) {
+                                cantidad = cantidad - cantidadPrevia;
+                            }
+                        }
+
+                        if (isNaN(cantidadPrevia)) {
+                            cantidadPrevia = 0;
+                        }
+                    
                         if (cantidad > 0){
-                            cantidad = cantidad - 1;
-                            document.getElementById(id).value = cantidad;
-                            alert("Se agrego el producto");
+                            if (cantidadPrevia >= 10 && bloquearDisminucion === 0){
+                                document.getElementById(id).value = "" + cantidadOriginal - cantidadPrevia;
+                                alert("Solo se pueden agregar 10 productos iguales");
+                                bloquearDisminucion = 1;
+                            }
+                            else{
+                                cantidad = cantidad - 1;
+                                cantidadPrevia = cantidadPrevia + 1;
+                                document.getElementById(id).value = cantidad;
+                                localStorage.setItem((id + ", Nombre: " + nombre + ", Talla: " + talla + ", Precio: " + precio + ", Cantidad: "), cantidadPrevia);
+                                alert("Se agrego el producto, totales agregados de este tipo: " + cantidadPrevia);
+                            }
                         }
                         else{
-                            alert("Se acabo el producto");   
+                            alert("Se acabo el producto");  
+                            document.getElementById(id).value = "0"; 
+                        }
+                    }
+
+                    function quitar(id, nombre, talla, precio) {
+                        cantidadPrevia = parseInt(localStorage.getItem((id + ", Nombre: " + nombre + ", Talla: " + talla + ", Precio: " + precio + ", Cantidad: ")));
+                        cantidadOriginal = parseInt(document.getElementById("ORG" + id).value);
+                        cantidad = parseInt(document.getElementById(id).value);
+                        
+                        if (cantidadOriginal !== cantidad) {
+                            if (cantidadPrevia > 0) {
+                                cantidad = cantidad + 1;
+                                cantidadPrevia = cantidadPrevia - 1;
+                                document.getElementById(id).value = cantidad;
+                                localStorage.setItem((id + ", Nombre: " + nombre + ", Talla: " + talla + ", Precio: " + precio + ", Cantidad: "), cantidadPrevia);
+                                alert("Se quito el producto, totales en carrito de este tipo: " + cantidadPrevia);
+                            }
+                            if (cantidadPrevia <= 0) {
+                                localStorage.removeItem((id + ", Nombre: " + nombre + ", Talla: " + talla + ", Precio: " + precio + ", Cantidad: "));
+                            }
+                        }
+                        else{
+                            localStorage.removeItem((id + ", Nombre: " + nombre + ", Talla: " + talla + ", Precio: " + precio + ", Cantidad: "));
+                            alert("No se han agregado productos de este tipo");
                         }
                     }
                 </script>
                 <h2>
                     Playeras
                 </h2>
+                
+                <input type="button" onclick="limpiarCC()" style="width: 30%; margin-left: 5%;" class="intro" value="Limpiar todas las compras">
+                <br>
                 <div class="contenedor-tienda">
                     <%
-                        String[] productosAMostrar = new Tienda.TiendaCargarProductos().productosEnBD();
+                        String[] productosAMostrar = new Tienda.ManejoDeProductos().productosEnBD();
                         if(productosAMostrar != null){
                             for (int i = 0; i < productosAMostrar.length; i++) {
                                 out.print(productosAMostrar[i]);

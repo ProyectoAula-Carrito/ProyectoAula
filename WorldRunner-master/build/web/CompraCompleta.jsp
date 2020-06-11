@@ -1,6 +1,6 @@
 <%-- 
-    Document   : CompletarCompra
-    Created on : 9/06/2020, 05:42:25 PM
+    Document   : CompraCompleta
+    Created on : 9/06/2020, 08:29:15 PM
     Author     : crist
 --%>
 
@@ -41,7 +41,22 @@
                     Ordenes
                 </h2>
                 <div class="contenedor-tienda">
-                    
+        <%
+            boolean compraCompleta = new Tienda.ManejoDeProductos().compraRealizada(request.getParameter("OrdenesH"));
+            if (compraCompleta) {
+                %>
+                <script type="text/javascript">
+                    localStorage.clear();
+                </script>
+                <h1>Compra completa</h1>
+                <%
+            }
+            else{
+                %>
+                <h1>Compra fallida</h1>
+                <%
+            }
+        %>
                 </div>                
             </section>
         </main>
