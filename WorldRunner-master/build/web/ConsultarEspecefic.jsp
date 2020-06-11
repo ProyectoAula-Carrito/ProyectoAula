@@ -27,15 +27,20 @@
 			<div class="nave">
                             <nav class="">	
                                 <a href="index.jsp" title="">Inicio</a>
-                                <a href="CompletarCompra.jsp" title="">Productos</a>
+                                <a href="ConsultarProdu.jsp" title="">Productos</a>
                                 <a href="Consultar.jsp">Clientes</a>
                             </nav>
 			</div>	
 		</header>
 		<main>
             <section class="presentacion">
-                   <%
+                   <%try{
+                    int vajs=Integer.parseInt(request.getParameter("vajs"));
+                   
+                    if(vajs==6){response.sendRedirect("Consultar.jsp");}else{
                        String correo=request.getParameter("correo");
+                    
+                    if(correo.matches("^(^[a-zA-Z-0-9]+@{1}[a-z]+(([.](com|web|org|gob|ipn)){1}([.](jp|es|mx))?){1}$){1}")){
                        Ingreso in=new Ingreso();
                        in.setCorreo(correo);
                    List<Cliente> datos=ClienteAc.ConsultarbyCorreo(in);
@@ -57,7 +62,8 @@
                             <td><% out.println(cl.getSexo()); %></td>
                             </tr>
                        <%
-                        }
+                        }}else{response.sendRedirect("Consultar.jsp");}}}catch(Exception ex){response.sendRedirect("Consultar.jsp");
+}
                    %> 
                    </table>  
                    <div class="contenedor-formulario">

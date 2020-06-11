@@ -1,9 +1,3 @@
-<%-- 
-    Document   : registro
-    Created on : 20/04/2020, 11:34:02 PM
-    Author     : lyeup
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -35,7 +29,7 @@
 		<main>
 			<section class="presentacion">
 				<div class="contenedor-formulario">
-					<form action="Insertar.jsp"  method="post" accept-charset="utf-8" name="formulario">
+					<form action="Insertar.jsp"  method="post" accept-charset="utf-8" name="formularioc">
 						<img src="img/usuario (1).png" alt="" class="per">
 						<h2>REGISTRO</h2>
 						Correo:<br>
@@ -47,12 +41,31 @@
                                                 Apellido materno:<br>
                                                 <input type="text" name="Apmat" value="" placeholder="" class="intro" autocomplete="off"><br><br>
                                                 Dia de nacimiento: <br>
-						<input type="text" name="dia" value="" placeholder="" class="intro" autocomplete="off"><br><br>
-						<br>
+                                                <select name="dia" class="intro">
+                                                    <% for (int j = 0; j < 31; j++){
+                                                        out.print("<option value=\""+ j + "\">" + j + "</option>");
+                                                        }
+                                                    %> 
+                                                </select>
+						<br><br>
+						
 						Mes de nacimiento: <br>
-						<input type="text" name="mes" value="" placeholder="" class="intro" autocomplete="off"><br><br>
+                                                <select name="mes">
+                                                    <% for (int j = 0; j < 12; j++){
+                                                        out.print("<option value=\""+ j + "\">" + j + "</option>");
+                                                        }
+                                                    %>
+                                                </select>
+                                                <br><br>
 						Año de nacimiento: <br>
-						<input type="text" name="year" value="" placeholder="" class="intro" autocomplete="off"><br><br>
+                                                <select name="year" class="intro">
+                                               
+                                                    <% for (int j = 1930; j < 2005; j++){
+                                                        out.print("<option value=\""+ j + "\">" + j + "</option>");
+                                                        }
+                                                    %>
+                                                </select>
+						<br><br>
 						Sexo: <br>
                                                 <input type="radio" name="sex" value="H">Hombre
                                                 <input type="radio" name="sex" value="M">Mujer<br>

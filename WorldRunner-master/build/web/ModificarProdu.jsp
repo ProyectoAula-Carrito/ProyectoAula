@@ -24,7 +24,7 @@
             </div>
             <div class="nave">
                 <nav class="">	
-                    <a href="index.jsp" title="">Inicio</a>
+                    <a href="ConsultarProdu.jsp" title="">Volver</a>
                 </nav>
             </div>	
         </header>
@@ -39,14 +39,17 @@
      }else{
 String cproducto=request.getParameter("codigo");
 String nombre=request.getParameter("nombre");
+String preciov=request.getParameter("precio");
 int precio=Integer.parseInt(request.getParameter("precio"));
 String talla=request.getParameter("talla");
+String cantidadv=request.getParameter("cantidad");
 int cantidad=Integer.parseInt(request.getParameter("cantidad"));
 String img="img/"+request.getParameter("img");
+String vimg=request.getParameter("img");
 Productoc pr=new Productoc();
 pr.setCproducto(cproducto);pr.setNombre(nombre);pr.setPrecio(precio);pr.setTalla(talla);pr.setCantidad(cantidad);pr.setImg(img);
 boolean estatus=ProductosAc.Modificar(pr);
-if(cproducto.matches("")){//validacion
+if(cproducto.matches("(^[T])+([0-9]+${1,5})") && nombre.matches("^[A-Za-záéíóúÁÉÍÓÚ\\s]+${1,49}") && preciov.matches("^[0-9]+${1,6}") && talla.matches("(XS|CH|MD|GR|XL)") && cantidadv.matches("^[0-9]+${1,6}") && vimg.matches("^^(^[a-zA-Z-0-9]+(([.](png|jpg|gif|jpge|csv)){1}$){1}")){//validacion
 if(estatus){
     
     response.sendRedirect("ConsultarProdu.jsp");
@@ -60,7 +63,6 @@ if(estatus){
 }
 %>
 <br>
-<a href="log.jsp" style="text-decoration: none;">Regresar</a>
         </div>                
     </section>
 </main>

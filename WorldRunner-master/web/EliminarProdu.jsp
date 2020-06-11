@@ -24,7 +24,7 @@
             </div>
             <div class="nave">
                 <nav class="">	
-                    <a href="index.jsp" title="">Inicio</a>
+                    <a href="ConsultarProdu.jsp" title="">Volver</a>
                 </nav>
             </div>	
         </header>
@@ -35,13 +35,13 @@
 <%try{
     int vajs=Integer.parseInt(request.getParameter("vajs"));
      if(vajs==6){
-         response.sendRedirect("log.jsp");
+         response.sendRedirect("ConsultarProdu.jsp");
      }else{
 String cproducto=request.getParameter("codigo");
 Search sr=new Search();
 sr.setCproducto(cproducto);
 boolean estatus=ProductosAc.Eliminar(sr);
-if(true){//validacion
+if(cproducto.matches("(^[T])+([0-9]+${1,5})")){//validacion
 if(estatus){
     
     response.sendRedirect("ConsultarProdu.jsp");
@@ -55,7 +55,6 @@ if(estatus){
 }
 %>
 <br>
-<a href="log.jsp" style="text-decoration: none;">Regresar</a>
         </div>                
     </section>
 </main>

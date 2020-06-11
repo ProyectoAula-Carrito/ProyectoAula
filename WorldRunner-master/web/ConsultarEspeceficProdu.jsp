@@ -34,8 +34,13 @@
 		</header>
 		<main>
             <section class="presentacion">
-                   <%
+                   <%try{
+                       int vajs=Integer.parseInt(request.getParameter("vajs"));
+     if(vajs==6){
+         response.sendRedirect("ConsultarProdu.jsp");
+     }else{
                        String cproducto=request.getParameter("cproducto");
+                       if(cproducto.matches("(^[T])+([0-9]+${1,5})")){
                        Search sr=new Search();
                        sr.setCproducto(cproducto);
                    List<Productoc> datos=ProductosAc.ConsultarbyCod(sr);
@@ -60,16 +65,16 @@
                                 <td><%out.println(pr.getCantidad());%></td>
                             </tr>
                        <%
-                        }
+                        }}else{out.println("No inserto un dato bien");}}}catch(Exception ex){}
                    %> 
                    </table>  
                    <div class="contenedor-formulario">
-					<form action="ConsultarEspeceficProdu.jsp" method="get" accept-charset="utf-8" name="formulario">
+					<form action="ConsultarEspeceficProdu.jsp" method="get" accept-charset="utf-8" name="formulario0">
 						
 						<h2>Buscar Algun producto mediante su Codigo-Producto</h2>
 						Codigo-Producto:<br>
 						<input type="text" name="cproducto" value="" placeholder="" class="intro"> <br><br>              
-                                                <input type="submit" name="proceso" value="Buscar" onclick="" class="button">
+                                                <input type="submit" name="proceso" value="Buscar" onclick="validarCprodu()" class="button">
                                                 <input type="hidden" name="vajs" value="0">
 					</form>
 				</div>

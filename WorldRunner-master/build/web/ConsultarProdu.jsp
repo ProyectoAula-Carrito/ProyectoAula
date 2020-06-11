@@ -60,15 +60,15 @@
                    %> 
                    </table>  
                    <div class="contenedor-formulario">
-					<form action="ConsultarEspeceficProdu.jsp" method="get" accept-charset="utf-8" name="formulario">
+					<form action="ConsultarEspeceficProdu.jsp" method="get" accept-charset="utf-8" name="formulario0">
 						
 						<h2>Buscar Algun producto mediante su Codigo-Producto</h2>
 						Codigo-Producto:<br>
 						<input type="text" name="cproducto" value="" placeholder="" class="intro"> <br><br>              
-                                                <input type="submit" name="proceso" value="Buscar" onclick="" class="button">
+                                                <input type="submit" name="proceso" value="Buscar" onclick="validarCprodu()" class="button">
                                                 <input type="hidden" name="vajs" value="0">
 					</form>
-                                        <form action="AgregarProdu.jsp" method="get" accept-charset="utf-8" name="formulario">
+                                        <form action="AgregarProdu.jsp" method="get" accept-charset="utf-8" name="formulario1">
 						
 						<h2>Agregar un producto</h2>
 						Codigo-Producto:<br>
@@ -87,10 +87,10 @@
 						<input type="text" name="cantidad" value="" placeholder="" class="intro"> <br><br>
                                                 Imagen(La imagen debe ser insertada en la carpeta img):<br>
 						<input type="text" name="img" value="" placeholder="" class="intro"> <br><br>
-                                                <input type="submit" name="proceso" value="Agregar" onclick="" class="button">
+                                                <input type="submit" name="proceso" value="Agregar" onclick="validarprodu()" class="button">
                                                 <input type="hidden" name="vajs" value="0">
 					</form>
-                                        <form action="ModificarProdu.jsp" method="get" accept-charset="utf-8" name="formulario">
+                                        <form action="ModificarProdu.jsp" method="get" accept-charset="utf-8" name="formulario2">
 						
 						<h2>Modificar un producto</h2>
 						Ingrese el "Codigo-Producto" que desea modificar:<br>
@@ -109,15 +109,15 @@
 						<input type="text" name="cantidad" value="" placeholder="" class="intro"> <br><br>
                                                 Imagen(La imagen debe ser insertada en la carpeta img):<br>
 						<input type="text" name="img" value="" placeholder="" class="intro"> <br><br>
-                                                <input type="submit" name="proceso" value="Modificar" onclick="" class="button">
+                                                <input type="submit" name="proceso" value="Modificar" onclick="validarprodu1()" class="button">
                                                 <input type="hidden" name="vajs" value="0">
 					</form>
-                                        <form action="EliminarProdu.jsp" method="get" accept-charset="utf-8" name="formulario">
+                                        <form action="EliminarProdu.jsp" method="get" accept-charset="utf-8" name="formulario3">
 						
 						<h2>Eliminar un producto mediante su Codigo-Producto</h2>
 						Codigo-Producto:<br>
 						<input type="text" name="codigo" value="" placeholder="" class="intro"> <br><br>
-                                                <input type="submit" name="proceso" value="Eliminar" onclick="" class="button">
+                                                <input type="submit" name="proceso" value="Eliminar" onclick="validarCprodu1()" class="button">
                                                 <input type="hidden" name="vajs" value="0">
 					</form>
 				</div>
