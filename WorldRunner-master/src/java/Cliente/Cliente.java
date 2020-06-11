@@ -13,7 +13,7 @@ package Cliente;
 import java.sql.*;
 public class Cliente {
     private String correo,nombres,appat,apmat,sexo,password;
-    private int dia,mes,year;
+    private int dia,mes,year,privilegio;
 
     public String getCorreo() {
         return correo;
@@ -85,6 +85,14 @@ public class Cliente {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public int getPrivilegio() {
+        return privilegio;
+    }
+
+    public void setPrivilegio(int privilegio) {
+        this.privilegio = privilegio;
     }
     
 }

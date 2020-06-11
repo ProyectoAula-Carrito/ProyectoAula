@@ -15,6 +15,7 @@
 	<link rel="icon" href="img/funcionamiento.png">
 	<link href="https://fonts.googleapis.com/css?family=Poppins&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+        
 </head>
 <body>
 	<script src="js/validar.js" type="text/javascript" charset="utf-8" async defer></script>
@@ -34,7 +35,7 @@
 		<main>
 			<section class="presentacion">
 				<div class="contenedor-formulario">
-					<form action="Insertar.jsp" method="post">
+					<form action="Insertar.jsp"  method="post" accept-charset="utf-8" name="formulario">
 						<img src="img/usuario (1).png" alt="" class="per">
 						<h2>REGISTRO</h2>
 						Correo:<br>
@@ -59,7 +60,8 @@
 						<input type="text" name="password" value="" placeholder="" class="intro"><br><br>
 						Confirmar contraseña: <br>
 						<input type="text" name="confirm" value="" placeholder="" class="intro"><br><br>
-                                                <input type="submit" name="proceso" value="Entrar" onclick="" class="button">
+                                                <input type="submit" name="proceso" value="Entrar" onclick="validaregister()" class="button">
+                                                <input type="hidden" name="vajs" value="0">
 					</form>
 				</div>
 				

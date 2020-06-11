@@ -32,23 +32,31 @@
     <section class="presentacion">
         <div class="contenedor-tienda">
             <h1>Error</h1>
-<%
+<%try{
+    int vajs=Integer.parseInt(request.getParameter("vajs"));
+     if(vajs==6){
+         response.sendRedirect("log.jsp");
+     }else{
 String correo=request.getParameter("correo");
 String password=request.getParameter("password");
 Ingreso in=new Ingreso();
 in.setCorreo(correo);
 in.setPassword(password);
-boolean estatus=ClienteAc.Log(in);
+int privilegio=ClienteAc.Log(in);
 if(correo.matches("^(^[a-zA-Z-0-9]+@{1}[a-z]+(([.](com|web|org|gob|ipn)){1}([.](jp|es|mx))?){1}$){1}") && password.matches("^[a-zA-Z0-9]+${1,44}")){
-if(estatus){
+if(privilegio==2){
     session.setAttribute("session","TRUE");
+        response.sendRedirect("HomeAdmin.jsp");
+}else if(privilegio==1){
+    session.setAttribute("session", "TRUE");
     response.sendRedirect("Tienda.jsp");
 }else{
     out.print("<h1>Lo sentimos, correo y/o contraseña incorrecta</h1>");
 }
 }else{
     out.println("<h1>Los datos no son validos</h1>");
-}
+}}}catch(Exception e){
+    response.sendRedirect("log.jsp");
 %>
 <br>
 <a href="log.jsp" style="text-decoration: none;">Regresar</a>

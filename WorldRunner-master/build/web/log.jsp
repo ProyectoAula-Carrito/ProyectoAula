@@ -34,7 +34,7 @@
 		<main>
 			<section class="presentacion">
 				<div class="contenedor-formulario">
-					<form action="loginprocess.jsp" method="get" accept-charset="utf-8">
+					<form action="loginprocess.jsp" method="get" accept-charset="utf-8" name="formulario">
 						<img src="img/usuario (1).png" alt="" class="per">
 						<h2>LOG-IN</h2>
 						Correo Electronico:<br>
@@ -42,6 +42,8 @@
 						Contraseña:<br>
 						<input type="password" name="password" value="" placeholder="" class="intro"><br><br>                  
 						<input type="submit" name="proceso" value="Entrar" onclick="" class="button"></input>
+                                                <input type="submit" name="proceso" value="Entrar" onclick="validarlog()" class="button">
+                                                <input type="hidden" name="vajs" value="0">
 					</form>
 				</div>
 				

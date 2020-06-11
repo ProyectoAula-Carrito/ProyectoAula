@@ -31,7 +31,11 @@
 		<main>
 			<section class="presentacion">
 				
- <%
+ <% try{
+     int vajs=Integer.parseInt(request.getParameter("vajs"));
+     if(vajs==6){
+         response.sendRedirect("registro.jsp");
+     }else{
         String correo=request.getParameter("correo");
         String nombres=request.getParameter("names");
         String appat=request.getParameter("Appat");
@@ -45,14 +49,17 @@
         String sexo=request.getParameter("sex");
         String password=request.getParameter("password");
         String confirm=request.getParameter("confirm");
+                
+        int privilegio=1;
         if(correo.matches("^(^[a-zA-Z-0-9]+@{1}[a-z]+(([.](com|web|org|gob|ipn)){1}([.](jp|es|mx))?){1}$){1}") && nombres.matches("^[A-Za-z\\s]+${1,44}") && appat.matches("^[A-Za-z\\s]+${1,44}")
-                && apmat.matches("^[A-Za-z\\s]+${1,44}") && diav.matches("^[0-9]+${1,3}+$") && mesv.matches("^[0-9]+${1,3}+$") && añov.matches("^[0-9]+${1,5}+$") && sexo.matches("^[A-Za-z\\s]+${1,44}")
+                && apmat.matches("^[A-Za-z\\s]+${1,44}") && diav.matches("^[0-9]+${1,3}+$") && mesv.matches("^[0-9]+${1,3}+$") && añov.matches("^[0-9]+${1,5}+$") && sexo.matches("^[A-Za-z\\s]+${1,3}")
                 && password.matches("^[a-zA-Z0-9]+${1,44}") && confirm.matches("^[a-zA-Z0-9]+${1,44}")){
+            if(password.equals(confirm)){
         Cliente cl=new Cliente();
-        cl.setCorreo(correo);cl.setNombres(nombres);cl.setAppat(appat);cl.setApmat(apmat);cl.setSexo(sexo);cl.setDia(dia);cl.setMes(mes);cl.setYear(año);cl.setPassword(password);
-        boolean estatus=ClienteAc.Register(cl);
+        cl.setCorreo(correo);cl.setNombres(nombres);cl.setAppat(appat);cl.setApmat(apmat);cl.setSexo(sexo);cl.setDia(dia);cl.setMes(mes);cl.setYear(año);cl.setPassword(password);cl.setPrivilegio(privilegio);
+        int estatus=ClienteAc.Register(cl);
         
-        if (estatus) {%>
+        if (estatus==1) {%>
         <div class="contenedor-presentacion">
 					<div class="contenedor-correcto">
                                             <h1>Los registros fueron insertados correctamente</h1>
@@ -60,23 +67,35 @@
 					</div>	
         </div>
 <%               
-        }else{%>
+        }else if(estatus==0){%>
         <div class="contenedor-presentacion">
 					<div class="contenedor-error">
 						<h2>"Se produjo un error al realizar la operacion"</h2>
 					</div>	
             </div>
             <%
-        }}else{%>
+        }else{%>
         <div class="contenedor-presentacion">
 					<div class="contenedor-error">
-						<h2>"Se produjo un error al realizar la operacion"</h2>
+						<h2>"El usuario ya existe"</h2>
+					</div>	
+            </div>
+            <%}}else{%>
+        <div class="contenedor-presentacion">
+					<div class="contenedor-error">
+						<h2>"Su contraseña no conincide"</h2>
 					</div>	
             </div>
 <%
-}
-
- %>
+}}else{%>
+<div class="contenedor-presentacion">
+					<div class="contenedor-error">
+						<h2>"Inserto un dato no valido"</h2>
+					</div>	
+            </div>
+ <%}}}catch(Exception ex){
+response.sendRedirect("registro.jsp");
+}%>
   <br><br>
                  
 				

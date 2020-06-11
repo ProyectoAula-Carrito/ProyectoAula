@@ -1,8 +1,4 @@
-<%-- 
-    Document   : index
-    Created on : 20/04/2020, 11:31:54 PM
-    Author     : lyeup
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -45,7 +41,7 @@
 							Ropa exclusivo para deportistas
 						</div>
 						<div class="cuadro">
-							<img src="img/levantamiento-de-pesas.png" alt="" align="center" class="ima">
+							<img src="img/rutina.png" alt="" align="center" class="ima">
 							Planes de entrenamiento durante 30 dias (creando)
 						</div>
 						<div class="cuadro">
