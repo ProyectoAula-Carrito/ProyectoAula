@@ -1,3 +1,4 @@
+<%@page import="Cliente.Ingreso"%>
 <%@page import="Cliente.ClienteAc"%>
 <%@ page language="java" import="java.sql.*,java.util.*,java.text.*" %>
 <%@page import="Cliente.Cliente" %>
@@ -34,7 +35,10 @@
 		<main>
             <section class="presentacion">
                    <%
-                   List<Cliente> datos=ClienteAc.Consultar();
+                       String correo=request.getParameter("correo");
+                       Ingreso in=new Ingreso();
+                       in.setCorreo(correo);
+                   List<Cliente> datos=ClienteAc.ConsultarbyCorreo(in);
                    %>
                    <table>
                        <tr>
@@ -55,7 +59,7 @@
                        <%
                         }
                    %> 
-                   </table>
+                   </table>  
                    <div class="contenedor-formulario">
 					<form action="ConsultarEspecefic.jsp" method="get" accept-charset="utf-8" name="formulario">
 						<img src="img/usuario (1).png" alt="" class="per">

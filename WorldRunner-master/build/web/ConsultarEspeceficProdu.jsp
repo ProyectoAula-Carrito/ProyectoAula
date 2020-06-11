@@ -1,6 +1,7 @@
-<%@page import="Cliente.ClienteAc"%>
+<%@page import="Tienda.Search"%>
+<%@page import="Tienda.ProductosAc"%>
 <%@ page language="java" import="java.sql.*,java.util.*,java.text.*" %>
-<%@page import="Cliente.Cliente" %>
+<%@page import="Tienda.Productoc" %>
 <%@ page language="java" %>
 <%@ page import = "java.util.LinkedList"%> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -34,35 +35,41 @@
 		<main>
             <section class="presentacion">
                    <%
-                   List<Cliente> datos=ClienteAc.Consultar();
+                       String cproducto=request.getParameter("cproducto");
+                       Search sr=new Search();
+                       sr.setCproducto(cproducto);
+                   List<Productoc> datos=ProductosAc.ConsultarbyCod(sr);
                    %>
                    <table>
                        <tr>
-                           <th>Correo</th>
+                           <th></th>
+                           <th>Codigo-Producto</th>
                            <th>Nombre</th>
-                           <th>Fecha de nacimiento</th>
-                           <th>Sexo</th>
+                           <th>Precio</th>
+                           <th>Talla</th>
+                           <th>Cantidad</th>
                        </tr>         
                 <%
-                    for (Cliente cl:datos) {
+                    for (Productoc pr:datos) {
                             %>
                             <tr>
-                            <td><% out.println(cl.getCorreo()); %></td>
-                            <td><% out.println(cl.getNombres()+" "+cl.getAppat()+" "+cl.getApmat()); %></td>
-                            <td><% out.println(cl.getDia()+"/"+cl.getMes()+"/"+cl.getYear()); %></td>
-                            <td><% out.println(cl.getSexo()); %></td>
+                                <td><%out.println("<img src='"+pr.getImg()+"'>");%></td>
+                                <td><%out.println(pr.getNombre());%></td>
+                                <td><%out.println(pr.getTalla());%></td>
+                                <td><%out.println(pr.getPrecio()+"$");%></td>
+                                <td><%out.println(pr.getCantidad());%></td>
                             </tr>
                        <%
                         }
                    %> 
-                   </table>
+                   </table>  
                    <div class="contenedor-formulario">
-					<form action="ConsultarEspecefic.jsp" method="get" accept-charset="utf-8" name="formulario">
-						<img src="img/usuario (1).png" alt="" class="per">
-						<h2>Buscar Algun usuario mediante su correo</h2>
-						Correo Electronico:<br>
-						<input type="text" name="correo" value="" placeholder="" class="intro"> <br><br>              
-                                                <input type="submit" name="proceso" value="Entrar" onclick="validarCor()" class="button">
+					<form action="ConsultarEspeceficProdu.jsp" method="get" accept-charset="utf-8" name="formulario">
+						
+						<h2>Buscar Algun producto mediante su Codigo-Producto</h2>
+						Codigo-Producto:<br>
+						<input type="text" name="cproducto" value="" placeholder="" class="intro"> <br><br>              
+                                                <input type="submit" name="proceso" value="Buscar" onclick="" class="button">
                                                 <input type="hidden" name="vajs" value="0">
 					</form>
 				</div>

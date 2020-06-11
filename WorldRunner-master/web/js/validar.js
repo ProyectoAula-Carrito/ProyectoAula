@@ -64,9 +64,22 @@ function validarlog(){
        if (!patroncor.test(correo)) {
             alert('Ha introducido un dato erroneo en el correo');
             document.formulario.vajs.value=6
-        }else if(!password.equals(password)){
+        }else if(!patrontex.test(password)){
             alert('Ha introducido un dato erroneo en la contraseña');
             document.formulario.vajs.value=6
         } 
+    }
+}
+function validarCor(){
+    var correo=document.formulario.correo.value;
+    var password=document.formulario.password.value;
+    if (correo == null || correo.length == 0 || /^\s+$/.test(correo) || password == null || password.length == 0 || /^\s+$/.test(password)) {
+        alert('Tiene que llenar todos los datos');
+            document.formulario.vajs.value=6
+    }else{
+       if (!patroncor.test(correo)) {
+            alert('Ha introducido un dato erroneo en el correo');
+            document.formulario.vajs.value=6
+        }
     }
 }

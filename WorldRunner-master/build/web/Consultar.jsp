@@ -55,7 +55,17 @@
                        <%
                         }
                    %> 
-                   </table>  
+                   </table>
+                   <div class="contenedor-formulario">
+					<form action="ConsultarEspecefic.jsp" method="get" accept-charset="utf-8" name="formulario">
+						<img src="img/usuario (1).png" alt="" class="per">
+						<h2>Buscar Algun usuario mediante su correo</h2>
+						Correo Electronico:<br>
+						<input type="text" name="correo" value="" placeholder="" class="intro"> <br><br>              
+                                                <input type="submit" name="proceso" value="Entrar" onclick="validarCor()" class="button">
+                                                <input type="hidden" name="vajs" value="0">
+					</form>
+				</div>
             </section>
         </main>
 	</div>
