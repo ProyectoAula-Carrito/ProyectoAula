@@ -121,33 +121,4 @@ public class ClienteAc {
         }
         return datos;
     }
-    public static List<Cliente> ConsultarbyCorreo(Ingreso in) throws SQLException{
-        List<Cliente> datos=new ArrayList<Cliente>();
-        try{
-            Cliente cl=new Cliente();
-            Connection cn=ClienteAc.getConnection();
-            String q="select correo,nombres,appat,apmat,dia,mes,year,sexo from cliente where correo=?";
-          
-            PreparedStatement ps=cn.prepareStatement(q);
-            ps.setString(1, in.getCorreo());
-            ResultSet rs=ps.executeQuery();
-            while(rs.next()){
-                
-                cl.setCorreo(rs.getString(1));
-                cl.setNombres(rs.getString(2));
-                cl.setAppat(rs.getString(3));
-                cl.setApmat(rs.getString(4));
-                cl.setDia(rs.getInt(5));
-                cl.setMes(rs.getInt(6));
-                cl.setYear(rs.getInt(7));
-                cl.setSexo(rs.getString(8));
-                datos.add(cl);
-                
-            }
-            cn.close();
-        }catch(Exception ex){
-            ex.printStackTrace();
-        }
-        return datos;
-    }
 }

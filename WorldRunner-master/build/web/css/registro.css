@@ -5,6 +5,11 @@
 	box-sizing: border-box;
 }
 
+img{
+    width: 120px;
+    height: 120px;
+}
+
 body{
 	background: #818479;
 	font-family: 'Poppins', sans-serif;
@@ -39,6 +44,16 @@ header{
 li{
 	list-style: none;
 
+}
+
+table{
+    margin-left: 5%;
+    width: 90%;
+}
+
+td, th, tr{
+    border-bottom: 5px solid #F24236;
+    text-align: center;
 }
 
 nav > a{

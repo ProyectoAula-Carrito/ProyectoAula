@@ -46,15 +46,14 @@
                 <h2>
                     Historial de compras
                 </h2>
-                
-                <input type="button" onclick="limpiarCC()" style="width: 30%; margin-left: 5%;" class="intro" value="Limpiar todas las compras">
-                <br>
                 <div class="contenedor-tienda">
                     <%
                         String[] historialDeCompra = new Tienda.ManejoDeProductos().historialDeCompras(request.getParameter("Correo"));
                         if(historialDeCompra != null){
                             for (int i = 0; i < historialDeCompra.length; i++) {
-                                out.print(historialDeCompra[i]);
+                                if (historialDeCompra[i] != null) {
+                                    out.print(historialDeCompra[i]);
+                                }
                             }
                         }
                     %>

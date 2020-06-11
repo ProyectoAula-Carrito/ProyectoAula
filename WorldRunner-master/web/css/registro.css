@@ -5,6 +5,11 @@
 	box-sizing: border-box;
 }
 
+img{
+    width: 120px;
+    height: 120px;
+}
+
 body{
 	background: #818479;
 	font-family: 'Poppins', sans-serif;
